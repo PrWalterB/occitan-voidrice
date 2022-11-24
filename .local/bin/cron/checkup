@@ -2,16 +2,16 @@
 
 # Syncs repositories and downloads updates, meant to be run as a cronjob.
 
-notify-send "📦 Repository Sync" "Checking for package updates..."
+notify-send "📦 Sincronizacion dau Depaus" "Verificacion de la mesa a jorn daus paquets"
 
-sudo pacman -Syyuw --noconfirm || notify-send "Error downloading updates.
+sudo pacman -Syyuw --noconfirm || notify-send "Error per le descharjament de las mesas a jorn.
 
-Check your internet connection, if pacman is already running, or run update manually to see errors."
+Verifiatz vòstre connexion internet, si pacman es desjà d'executar, o executatz manualament per veire las errors."
 pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
 if pacman -Qu | grep -v "\[ignored\]"
 then
-	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update."
+	notify-send "🎁 Sincronizacion dau Depaus" "Mesas a jorn disponibles. Cliquatz sobre l'icòna de la bara d'estatut (📦) per metre a jorn."
 else
-	notify-send "📦 Repository Sync"  "Sync complete. No new packages for update."
+	notify-send "📦 Sincronizacion dau Depaus"  "Sincronizacion achabada. Pas gis de novèls paquets per metre a jorn."
 fi
