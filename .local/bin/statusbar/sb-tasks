@@ -11,8 +11,8 @@ num=$(tsp -l | awk -v numr=0 -v numq=0 '{if (/running/)numr++; if (/queued/)numq
 # Handle mouse clicks
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e tsp -l ;;
-	3) notify-send "Tasks module" "🤖: number of running/queued background tasks
-- Left click opens tsp" ;; # Right click
+	3) notify-send "Module de taschas" "🤖: nòmbre de taschas en execution/espeitança en darrèir plan
+- Cliquatz a l'esquèrra per dobrir tsp" ;; # Right click
 	2) $EDITOR "$0" ;; # Middle click
 esac
 
