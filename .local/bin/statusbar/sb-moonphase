@@ -24,14 +24,14 @@ esac
 echo "${icon-?}"
 
 case $BLOCK_BUTTON in
-	3) notify-send "🌜 Moon phase module" "Displays current moon phase.
-- 🌑: New
-- 🌒: Waxing Crescent
-- 🌓: First Quarter
-- 🌔: Waxing Gibbous
-- 🌕: Full
-- 🌖: Waning Gibbous
-- 🌗: Last Quarter
-- 🌘: Waning Crescent" ;;
+	3) notify-send "🌜 Module de fasa lunara" "Mostra la fasa lunara actuala.
+- 🌑: Novèla
+- 🌒: Creissant en creissança
+- 🌓: Promèir Quartèir
+- 🌔: Gibut en creissança
+- 🌕: Plena
+- 🌖: Gibut en declin
+- 🌗: Darrèir Quartèir
+- 🌘: Creissant en declin" ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
