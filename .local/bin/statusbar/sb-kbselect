@@ -8,8 +8,8 @@ case $BLOCK_BUTTON in
 	kb="$(echo "$kb_choice" | awk '{print $3}')"
 	setxkbmap "$kb"
 	pkill -RTMIN+30 "${STATUSBAR:-dwmblocks}";;
-	3) notify-send "⌨  Keyboard/language module" "$(printf "%s" "\- Current layout: $(setxkbmap -query | grep -oP 'layout:\s*\K\w+')")
-- Left click to change keyboard.";;
+	3) notify-send "⌨  Module clavèir/linga" "$(printf "%s" "\- Disposicion actuala: $(setxkbmap -query | grep -oP 'layout:\s*\K\w+')")
+- Cliquatz a l'esquèrra per chanjar la disposicion.";;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
