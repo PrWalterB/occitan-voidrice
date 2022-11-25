@@ -19,11 +19,11 @@ sed '13q;d' "$weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | s
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e less -Srf "$weatherreport" ;;
 	2) getforecast && showweather ;;
-	3) notify-send "🌈 Weather module" "\- Left click for full forecast.
-- Middle click to update forecast.
-☔: Chance of rain/snow
-🥶: Daily low
-🌞: Daily high" ;;
+	3) notify-send "🌈 Module meteo" "\- Cliquatz a l'esquèrra per la prevision complèta.
+- Cliquatz au mejan per metre a jorn la prevision.
+☔: Chança que plòia/ivèrn
+🥶: Le mai bas
+🌞: Le mai naut" ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
