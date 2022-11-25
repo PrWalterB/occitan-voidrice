@@ -1,9 +1,9 @@
 #!/bin/sh
 
-printf "Beginning upgrade.\\n"
+printf "Debuta de la mesa a nivèl.\\n"
 
 yay -Syu
 pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
-printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
+printf "\\nMesa a nivèl achabada.\\nPressatz <Entrada> per quitar la fenèstra.\\n\\n"
 read -r _
