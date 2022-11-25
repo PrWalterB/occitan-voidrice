@@ -6,11 +6,11 @@
 case $BLOCK_BUTTON in
         1) setsid "$TERMINAL" -e newsboat ;;
 	2) setsid -f newsup >/dev/null exit ;;
-        3) notify-send "📰 News module" "\- Shows unread news items
-- Shows 🔃 if updating with \`newsup\`
-- Left click opens newsboat
-- Middle click syncs RSS feeds
-<b>Note:</b> Only one instance of newsboat (including updates) may be running at a time." ;;
+        3) notify-send "📰 Module de novèlas" "\- Mostra los novèls elements pas legits
+- Mostra 🔃 si es de mesa a jorn embei \`newsup\`
+- Cliquatz a l'esquèrra per dobrir newsboat
+- Cliquatz au mejan per sincronizar los fiaus RSS
+<b>Note:</b> Mas i-una instança de newsboat (includant las mesas a jorn) pòt èsser executada per còp." ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
