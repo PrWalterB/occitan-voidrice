@@ -3,9 +3,9 @@
 case $BLOCK_BUTTON in
 	1) notify-send "🧠 Memory hogs" "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
 	2) setsid -f "$TERMINAL" -e htop ;;
-	3) notify-send "🧠 Memory module" "\- Shows Memory Used/Total.
-- Click to show memory hogs.
-- Middle click to open htop." ;;
+	3) notify-send "🧠 Module de memòria" "\- Mostra la memòria utilizada/totala.
+- Cliquatz per mostrar los hogs de memòria.
+- Cliquatz au mejan per dobrir htop." ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
