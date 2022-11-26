@@ -2,11 +2,11 @@
 
 # Requires ffmpeg
 
-[ ! -f "$2" ] && printf "The first file should be the audio, the second should be the timecodes.\\n" && exit
+[ ! -f "$2" ] && printf "Le promèir fichèir deu èsser l'audio, le segond los timecòdes.\\n" && exit
 
-echo "Enter the album/book title:"; read -r booktitle
-echo "Enter the artist/author:"; read -r author
-echo "Enter the publication year:"; read -r year
+echo "Entratz le titre de l'album/le libre:"; read -r booktitle
+echo "Entratz l'artiste/l'autor:"; read -r author
+echo "Entratz l'annada de publicacion:"; read -r year
 
 inputaudio="$1"
 ext="${1##*.}"
@@ -15,7 +15,7 @@ ext="${1##*.}"
 escbook="$(echo "$booktitle" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g")"
 
 ! mkdir -p "$escbook" &&
-    echo "Do you have write access in this directory?" &&
+    echo "Avetz le dreit d'escriure dins le dossèir ?" &&
     exit 1
 
 # Get the total number of tracks from the number of lines.
