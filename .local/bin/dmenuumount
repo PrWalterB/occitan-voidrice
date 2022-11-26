@@ -6,7 +6,7 @@
 
 drives="$(lsblk -nrpo "name,type,size,mountpoint,label" | awk -F':' '{gsub(/ /,":")}$4!~/\/boot|\/efi|\/home$|SWAP/&&length($4)>1{printf "%s (%s) %s\n",$4,$3,$5}'; awk '/simple-mtpfs/ { print "📱", $2; }' /etc/mtab)"
 
-chosen="$(echo "$drives" | dmenu -i -p "Unmount which drive?")" || exit 1
+chosen="$(echo "$drives" | dmenu -i -p "Demontar quun disc ?")" || exit 1
 
 case "$chosen" in
 	📱*)
@@ -17,5 +17,5 @@ case "$chosen" in
 		chosen="${chosen% (*}"
 		sudo -A umount -l "$chosen"
 		;;
-esac && notify-send "🖥️ Drive unmounted." "$chosen successfully unmounted." ||
-	notify-send "🖥️ Drive failed to unmount." "Possibly a permissions or I/O issue."
+esac && notify-send "🖥️ Disc demontat." "$chosen a capitat de se demontar." ||
+	notify-send "🖥️ Le disc a pas capitat de demontar." "Possiblament una error de permession o I/O."
