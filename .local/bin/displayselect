@@ -41,7 +41,7 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
 morescreen() { # If multi-monitor is selected and there are more than two screens.
 	primary=$(echo "$screens" | dmenu -i -p "Seleccionatz la promèira mostrada:")
 	secondary=$(echo "$screens" | grep -v "$primary" | dmenu -i -p "Seleccionatz la segonda mostrada:")
-	direction=$(printf "left\\nright" | dmenu -i -p "De quun costat de $primary $secondary deu se botar ?")
+	direction=$(printf "esquèrra\\ndreita" | dmenu -i -p "De quun costat de $primary $secondary deu se botar ?")
 	tertiary=$(echo "$screens" | grep -v "$primary" | grep -v "$secondary" | dmenu -i -p "Seleccionatz la treseme mostrada:")
 	xrandr --output "$primary" --auto --output "$secondary" --"$direction"-of "$primary" --auto --output "$tertiary" --"$(printf "esquèrra\\ndreita" | grep -v "$direction")"-of "$primary" --auto
 	}
