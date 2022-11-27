@@ -2,13 +2,13 @@
 
 usage ()
 {
-    printf "Usage : noisereduce <input video file> <output video file>\n"
+    printf "Usatge : noisereduce <fichèir video entrant> <fichèir video sortant>\n"
     exit
 }
 
 # Tests for requirements
-ifinstalled ffmpeg || { echo >&2 "We require 'ffmpeg' but it's not installed."; exit 1; }
-ifinstalled sox || { echo >&2 "We require 'ffmpeg' but it's not installed."; exit 1; }
+ifinstalled ffmpeg || { echo >&2 "Avèm besonh de 'ffmpeg' mas z-es pas installat."; exit 1; }
+ifinstalled sox || { echo >&2 "Avèm besonh de 'sox' mas z-es pas installat."; exit 1; }
 
 if [ "$#" -ne 2 ]
 then
@@ -17,16 +17,16 @@ fi
 
 if [ ! -e "$1" ]
 then
-    printf "File not found: %s\n" "$1"
+    printf "Fichèir pas trobat: %s\n" "$1"
     exit
 fi
 
 if [ -e "$2" ]
 then
-    printf "File %s already exists, overwrite? [y/N]\n: " "$2"
+    printf "Fichèir %s exista desjà, espotir? [o/N]\n: " "$2"
     read -r yn
     case $yn in
-        [Yy]* ) ;;
+        [Oo]* ) ;;
         * ) exit;;
     esac
 fi
@@ -38,19 +38,19 @@ isVideoStr=$(ffprobe -v warning -show_streams "$1" | grep codec_type=video)
 if [ -n "$isVideoStr" ]
 then
     isVideo=1
-    printf "Detected %s as a video file\n" "$inBasename"
+    printf "%s detectat coma un fichèir video\n" "$inBasename"
 else
     isVideo=0
-    printf "Detected %s as an audio file\n" "$inBasename"
+    printf "%s detectat coma un fichèir audio\n" "$inBasename"
 fi
 
-printf "Sample noise start time [00:00:00]: "
+printf "Començament de la peça de brut [00:00:00]: "
 read -r sampleStart
 if [ -z "$sampleStart" ] ; then sampleStart="00:00:00"; fi
-printf "Sample noise end time [00:00:00.900]: "
+printf "Achabament de la peça de brut [00:00:00.900]: "
 read -r sampleEnd
 if [ -z "$sampleEnd" ] ; then sampleEnd="00:00:00.900"; fi
-printf "Noise reduction amount [0.21]: "
+printf "Taus de reduction de brut [0.21]: "
 read -r sensitivity
 if [ -z "$sensitivity" ] ; then sensitivity="0.21"; fi
 
@@ -61,7 +61,7 @@ noiseAudFile="/tmp/noiseclean_noiseaud.wav"
 noiseProfFile="/tmp/noiseclean_noise.prof"
 tmpAudCleanFile="/tmp/noiseclean_tmpaud-clean.wav"
 
-printf "Cleaning noise on %s...\n" "$1"
+printf "Curada dau brut a %s...\n" "$1"
 
 if [ $isVideo -eq "1" ]; then
     ffmpeg -v warning -y -i "$1" -qscale:v 0 -vcodec copy -an "$tmpVidFile"
@@ -78,4 +78,4 @@ else
     cp "$tmpAudCleanFile" "$2"
 fi
 
-printf "Done"
+printf "Achabat"
