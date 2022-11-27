@@ -7,12 +7,12 @@ else
 		grep -o "https?://[^\" ]")"
 
 	echo "$url" | grep -q "https*://\S\+\.[A-Za-z]\+\S*" ||
-		notify-send "That doesn't look like a full URL." && exit 1
+		notify-send "Quo sembla pas un URL entèir." && exit 1
 fi
 
 RSSFILE="${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls"
 if awk '{print $1}' "$RSSFILE" | grep "^$url$" >/dev/null; then
-	notify-send "You already have this RSS feed."
+	notify-send "Avètz desjà dins vòstre flus RSS."
 else
-	echo "$url" >> "$RSSFILE" && notify-send "RSS feed added."
+	echo "$url" >> "$RSSFILE" && notify-send "Fiau RSS botat."
 fi
